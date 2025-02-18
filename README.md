@@ -30,3 +30,65 @@ Clone the repository:
 ```bash
 git clone https://github.com/your-username/port-scanner.git
 cd port-scanner
+```
+
+### Install dependencies:
+
+```python
+pip install tqdm
+```
+```bash
+python port_scanner.py <target> [options]
+```
+#### Arguments:
+  - target (required): The IP address or domain name to scan. Example: scanme.nmap.org or 192.168.1.1.
+  - -t or --thread (optional): The number of threads to use for scanning (default is 200).  
+  - -r or --range (optional): The maximum number of ports to scan (default is 1000).
+  - -s or --subnet (optional): Scan a subnet for live hosts in CIDR format. Example: 192.168.1.0/24.
+Example Commands:
+Scan a single target:
+```bash
+python port_scanner.py 192.168.1.1
+```
+Scan a target with a custom range of ports:
+```bash
+python port_scanner.py 192.168.1.1 -r 500
+```
+Scan a subnet for live hosts and scan open ports on them:
+
+bash
+Copy
+Edit
+python port_scanner.py 192.168.1.1 -s 192.168.1.0/24
+Scan with more threads to speed up the process:
+
+bash
+Copy
+Edit
+python port_scanner.py 192.168.1.1 -t 500
+Output
+The script will display:
+
+A progress bar indicating the current status of the scan.
+Open ports along with their associated services (e.g., HTTP, FTP).
+The list of live hosts (if subnet scanning is enabled).
+Execution time of the scan.
+Example Output:
+kotlin
+Copy
+Edit
+Scanning subnet 192.168.1.0/24 for live hosts...
+Host 192.168.1.1 is live.
+Host 192.168.1.2 is live.
+
+Live hosts found: ['192.168.1.1', '192.168.1.2']
+
+Scanning 1000 ports for target 192.168.1.1...
+
+[+] port 22/ssh is open
+[+] port 80/http is open
+
+open ports are: [22, 80]
+execution time: 2.35 seconds
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
