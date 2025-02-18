@@ -37,6 +37,7 @@ cd port-scanner
 ```python
 pip install tqdm
 ```
+##### Usage
 ```bash
 python port_scanner.py <target> [options]
 ```
@@ -56,16 +57,14 @@ python port_scanner.py 192.168.1.1 -r 500
 ```
 Scan a subnet for live hosts and scan open ports on them:
 
-bash
-Copy
-Edit
+```bash
 python port_scanner.py 192.168.1.1 -s 192.168.1.0/24
+```
 Scan with more threads to speed up the process:
 
-bash
-Copy
-Edit
+```bash
 python port_scanner.py 192.168.1.1 -t 500
+```
 Output
 The script will display:
 
@@ -74,9 +73,7 @@ Open ports along with their associated services (e.g., HTTP, FTP).
 The list of live hosts (if subnet scanning is enabled).
 Execution time of the scan.
 Example Output:
-kotlin
-Copy
-Edit
+```kotlin
 Scanning subnet 192.168.1.0/24 for live hosts...
 Host 192.168.1.1 is live.
 Host 192.168.1.2 is live.
@@ -90,5 +87,4 @@ Scanning 1000 ports for target 192.168.1.1...
 
 open ports are: [22, 80]
 execution time: 2.35 seconds
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+```
